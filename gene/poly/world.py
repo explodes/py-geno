@@ -46,7 +46,7 @@ class PolynomialOrganism(Polynomial, genes.Organism):
     min_coeffs = 1 + 1
     max_coeffs = 4 + 1
     new_gene_bounds = (-100, 100)
-    gene_mutate_variance = (-0.085, 0.085)
+    gene_mutate_variance = (-0.085, 0.05)
     gene_mutate_probability = 0.072
     gene_length_mutate_probability = 0.022
 
