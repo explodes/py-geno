@@ -5,5 +5,14 @@ Also included is an application that attempts to find a polynomial fitting a set
 
 
 >>>from gene.poly.main import main
+
+
+
+
+
+
+
+
+
 >>>main()
 
