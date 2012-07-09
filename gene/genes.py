@@ -6,7 +6,7 @@ class prettyobject(object):
         return self.__class__.__name__
 
 class World(prettyobject):
-    ''' Describes the state of the world organismsomes live in '''
+    ''' Describes the state of the world organisms live in '''
 
     def __init__(self):
         import random
