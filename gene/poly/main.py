@@ -33,8 +33,24 @@ def update_world(world, Pb, Ps):
     world.organisms = results
 
 def main():
+    import signal
+    import sys
 
     world = PolynomialWorld()
+
+    def print_results():
+        fitnesses = [(org, org.fitness()) for org in world.organisms]
+        fitnesses.sort(key=lambda x:x[1])
+        chromo, r2 = fitnesses[0]
+        print '%s @ R2 = %f' % (chromo, r2)
+        print '%s' % world.polynomial
+
+    def handle_SIGINT(*args, **kwargs):
+        print 'INTERRUPTED'
+        print_results()
+        sys.exit(1)
+
+    signal.signal(signal.SIGINT, handle_SIGINT)
 
     for dummy_count in xrange(POOL_SIZE):
         coeffs = [random.randint(*STARTING_COEFF_BOUNDS) for dummy2 in xrange(random.randint(*STARTING_COEFF_COUNT))]
@@ -55,13 +71,7 @@ def main():
         update_world(world, BIRTH_PERCENT, SURVIVE_PERCENT)
         count += 1
 
-    fitnesses = [(org, org.fitness()) for org in world.organisms]
-    fitnesses.sort(key=lambda x:x[1])
-
-    chromo, r2 = fitnesses[0]
-
-    print '%s @ R2 = %f' % (chromo, r2)
-    print '%s' % world.polynomial
+    print_results()
 
 
 
