@@ -43,8 +43,6 @@ class Polynomial(object):
 
 class PolynomialOrganism(Polynomial, genes.Organism):
 
-    min_coeffs = 1 + 1
-    max_coeffs = 8 + 1
     new_gene_bounds = (-100, 100)
     gene_mutate_variance = (-0.085, 0.085)
     gene_mutate_probability = 0.072
