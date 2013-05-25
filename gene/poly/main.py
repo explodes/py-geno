@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import random
 
 from world import PolynomialWorld, PolynomialOrganism
